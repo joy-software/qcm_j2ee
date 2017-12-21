@@ -4,6 +4,7 @@ public class Answer {
 	/**
 	 * The value of the answer which the student had chosen 
 	 */
+
 	private String value;
 	/**
 	 * The id of the answer that student had chosen

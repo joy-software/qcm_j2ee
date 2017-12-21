@@ -2,7 +2,8 @@ package com.master.datascale.projet.bean;
 
 /**
  * 
- * @author hp
+ * The teacher Class model
+ * @author Joy Jedidja
  *
  */
 public class Teacher extends User {
@@ -36,5 +37,14 @@ public class Teacher extends User {
 	public void setCourseTitle(String courseTitle) {
 		this.courseTitle = courseTitle;
 	}
+
+	
+	public String toString() {
+		return "Teacher [courseTitle=" + courseTitle + ", firstname=" + firstname + ", surname=" + surname + "]";
+	}
+	
+	
+	
+	
 
 }
