@@ -15,9 +15,9 @@ public class Teacher extends User {
 	 * The title of the course this teacher is teaching.
 	 */
 	private String courseTitle;
-	
-	public Teacher(String firstname, String surname) {
-		super(firstname, surname);
+
+	public Teacher(int id, String firstname, String surname) {
+		super(id, firstname, surname);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -10,7 +10,11 @@ public class User {
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	/**
+	 * The id of the user
+	 */
+	public int id;
+
 	/**
 	 * The first name of the User
 	 */
@@ -19,18 +23,35 @@ public class User {
 	 * The last name of the User
 	 */
 	public String surname;
-	
+
 	/**
 	 * Constructor using fields
 	 * @param firstname the first name of the user
 	 * @param surname the last name of the user
+	 * @param id the id of the user
 	 */
-	public User(String firstname, String surname) {
+	public User(int id, String firstname, String surname) {
 		super();
+		this.id = id;
 		this.firstname = firstname;
 		this.surname = surname;
 	}
-	
+
+	/**
+	 * 
+	 * @return Return the id of the user
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * 
+	 * @param id the new value of the id user
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	/**
 	 * Get the first name of the user
 	 * @return
@@ -63,11 +84,14 @@ public class User {
 		this.surname = surname;
 	}
 
-	@Override
+
 	public String toString() {
-		return "User [firstname=" + firstname + ", surname=" + surname + "]";
+		return "User [id=" + id + ", firstname=" + firstname + ", surname="
+				+ surname + "]";
 	}
-	
-	
+
+
+
+
 
 }
