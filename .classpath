@@ -13,5 +13,20 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/asm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/cglib-2.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/commons-pool.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/javassist.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/jboss-archive-browsing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/jta.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/log4j-1.2.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/lucene-core-2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hp/Documents/M2 Datascale/POO/libPour_hibernate/libs/mysql-connector-java-5.1.7-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
