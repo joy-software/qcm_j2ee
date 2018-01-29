@@ -1,11 +1,18 @@
 package com.master.datascale.projet.bean;
 
+import org.apache.struts.action.ActionForm;
+
 /**
  * The user class
  * @author Joy Jedidja
  *
  */
-public class User {
+public class User extends ActionForm {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public User() {
 		// TODO Auto-generated constructor stub
@@ -23,6 +30,15 @@ public class User {
 	 * The last name of the User
 	 */
 	public String surname;
+	/**
+	 * The login of the User
+	 */
+	public String login;
+	
+	/**
+	 * The password of the User
+	 */
+	public String password;
 
 	/**
 	 * Constructor using fields
@@ -30,12 +46,27 @@ public class User {
 	 * @param surname the last name of the user
 	 * @param id the id of the user
 	 */
-	public User(int id, String firstname, String surname) {
+	public User(int id, String firstname, String surname,String login, String password) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
 		this.surname = surname;
+		this.login = login;
+		this.password = password;
 	}
+	/*/
+	
+	/**
+	 * Constructor using fields
+	 * @param login the first name of the user
+	 * @param password the last name of the user
+	 */
+	public User(String login, String password) {
+		super();
+		this.login = login;
+		this.password = password;
+	}
+	
 
 	/**
 	 * 
@@ -83,11 +114,42 @@ public class User {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
+	/**
+	 * Get the Login of the User
+	 * @return
+	 */
+	public String getLogin() {
+		return login;
+	}
+	
+	/**
+	 * Modify the login of the user
+	 * @param login The new login
+	 */
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	/**
+	 * Return the password of the User
+	 * @return
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * Modify the password of the User
+	 * @param password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 
 	public String toString() {
 		return "User [id=" + id + ", firstname=" + firstname + ", surname="
-				+ surname + "]";
+				+ surname + ", login= "+login + "]";
 	}
 
 

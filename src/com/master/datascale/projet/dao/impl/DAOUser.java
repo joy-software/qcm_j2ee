@@ -40,4 +40,24 @@ public class DAOUser extends HibernateDaoSupport implements IDAOUser {
 		return (List<User>)getHibernateTemplate().find("from User");
 	}
 
+	@Override
+	public boolean checkCredentials(String login, String password) {
+		
+		Boolean result = false;
+		
+		String query = "from User where login = ? and password = ?";
+        Object[] queryParam = {login, password};
+		List<User> Users = (List<User>)getHibernateTemplate().
+				find(query,queryParam);
+		
+		if(Users.size()  > 0)
+		{
+			System.out.println("C'est bon");
+			
+			result = true;
+		}
+		
+		return result;
+	}
+
 }

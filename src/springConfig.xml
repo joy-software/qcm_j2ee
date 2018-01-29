@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	
+	
+	<bean id="User" class="com.master.datascale.projet.bean.User"/>
+
+	
+	<bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" > 
+		
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property> 
+		<property name="url">
+			<value>jdbc:mysql://localHost/TP_DOO</value>
+		</property>
+		<property name="username"> <value>joy</value> </property> 
+		<property name="password"> <value>sql@joy@ad</value> </property>
+	</bean>	  
+	
+	<bean id="mySessionFactory"  class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" >
+		<property name="dataSource"> <ref bean="myDataSource"/> </property> 
+		<property name="mappingResources"> 
+			<list>
+				<value>com/master/datascale/projet/dao/utility/User.hbm.xml</value> 
+			</list>
+		</property> 
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> 
+				<prop key="hibernate.show_sql">true</prop> 
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props> 
+		</property>
+	</bean>
+	
+	<bean class="com.master.datascale.projet.dao.impl.DAOUser"  id="DAOUser">   
+		<property name="sessionFactory"  ref="mySessionFactory"/> 
+	</bean>
+
+</beans>

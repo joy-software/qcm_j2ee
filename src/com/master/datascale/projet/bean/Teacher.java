@@ -8,6 +8,11 @@ package com.master.datascale.projet.bean;
  */
 public class Teacher extends User {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Teacher() {
 		// TODO Auto-generated constructor stub
 	}
@@ -17,11 +22,17 @@ public class Teacher extends User {
 	 */
 	private String courseTitle;
 
-	public Teacher(int id, String firstname, String surname) {
-		super(id, firstname, surname);
+	public Teacher(int id, String firstname, String surname,String login,String password,String courseTitle) {
+		super(id, firstname, surname,login,password);
+		this.courseTitle = courseTitle;
 		// TODO Auto-generated constructor stub
 	}
 
+	public Teacher(int id, String firstname, String surname,String login,String password) {
+		super(id, firstname, surname,login,password);
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * Return the title of the course teach by the current teacher
 	 * @return

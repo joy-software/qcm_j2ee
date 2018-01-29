@@ -1,0 +1,116 @@
+body{
+	-webkit-tap-highlight-color:#212529;
+	font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+	font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+}
+	}
+section {
+	padding: 8rem 0;
+}
+::selection{
+	color: #fff;
+    background: #212529;
+    text-shadow: none;
+}
+
+@media (min-width: 992px){
+	header.masthead h1 {
+		font-size: 4rem;
+	}
+	header.masthead {
+		height: 100vh;
+		min-height: 650px;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	#mainNav {
+		border-color: transparent;
+		background-color: transparent;
+	}
+	#mainNav {
+		border-bottom: 1px solid rgba(33,37,41,.1);
+		background-color: #fff;
+		font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+		-webkit-transition: all .2s;
+		-moz-transition: all .2s;
+		transition: all .2s;
+	}
+	#mainNav .navbar-brand {
+    color: rgba(255,255,255,.7);
+}
+}
+#mainNav {
+	font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+	
+}
+div {
+    display: block;
+}
+#mainNav .navbar-brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f05f40;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+header.masthead{
+	background-image: url(../img/header.jpg);
+    background-position: center center;
+	background-size: cover;
+}
+
+header.masthead p {
+    font-weight: 300;
+}
+
+
+.text-faded {
+    color: rgba(255,255,255,.7);
+}
+.btn-primary {
+    background-color: #f05f40;
+    border-color: #f05f40;
+}
+.btn-xl {
+    padding: 1rem 2rem;
+}
+.btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 300px;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+.btn-primary:active{
+	box-shadow: 0 0 0 .2rem rgba(240,95,64,.5)!important;
+}
+.btn-primary:hover{
+	background-color: #ee4b28!important;
+}
+.btn-primary:visited{
+	background-color: #f05f40!important;
+}
+.section-heading {
+    margin-top: 0;
+}
+h2{
+	font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+.bg-primary {
+    background-color: #f05f40!important;	
+}
+a:visited{
+	border-color:#f05f40
+}
+
