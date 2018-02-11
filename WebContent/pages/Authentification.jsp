@@ -16,10 +16,17 @@
 
   
   <div class="row" ><br><br><br>
+  	<div class="col-md-4"></div>
     <div class="col-md-4">
       <section class="login-form">
-        <form method="post" action="login.do" role="login">
+        <form method="post" action="Login.do" role="login">
 		  <img src="content/img/quizLogin.png" class="img-responsive" alt="" />
+		  <c:if test="${not empty sessionScope.success}">
+   				<label style="color: green;">${sessionScope.success}</label>
+		  </c:if>
+		  <c:if test="${not empty sessionScope.validate}">
+   				<label style="color: red;">${sessionScope.validate}</label>
+		  </c:if>
           <input  type="text" name="login" placeholder="Login"  class="form-control input-lg" required/>       
           	<c:choose>
      			<c:when test="${sessionScope.login == false}">
@@ -29,7 +36,7 @@
           <input type="password" class="form-control input-lg" name="password" placeholder="Password" required/>          
           <button type="submit" class="btn btn-lg btn-primary btn-block">Connect</button> 
         	<div>	
-			<a href="./callRegister.do">Create New Account</a>
+			<a href="./register.do">Create New Account</a>
          </div>
         </form>  
       </section>  

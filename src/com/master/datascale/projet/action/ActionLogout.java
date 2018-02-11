@@ -10,15 +10,21 @@ import org.apache.struts.action.ActionMapping;
 
 
 
-public class ActionCallRegister extends Action {
+public class ActionLogout extends Action {
 	
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 	{
-
-			request.getSession().removeAttribute("login");
-			return mapping.findForward("register");
+		System.out.println("Je suis dans ActionLogout");
+		String forward = "login";
 		
+		request.getSession().removeAttribute("user");
+		request.getSession().removeAttribute("login");
+		request.getSession().removeAttribute("success");
+		request.getSession().removeAttribute("validate");
+		request.getSession().removeAttribute("teachers");
+		
+		return mapping.findForward(forward);
 	}
 
 }

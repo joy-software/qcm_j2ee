@@ -37,7 +37,7 @@ public class DAOQcm  extends HibernateDaoSupport implements IDAOQcm {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Qcm> getAll(String query) {
+	public List<Qcm> getAll() {
 		return (List<Qcm>)getHibernateTemplate().find("from Qcm");
 	}
 

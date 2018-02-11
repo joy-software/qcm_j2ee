@@ -8,12 +8,18 @@
   		<generator class="increment"/>
   	</id>
   	
+  	<property name="type"/>
+  	
   	<property name="firstname" type="java.lang.String">
       <column name="firstname"/> 
     </property>
     
     <property name="surname" type="java.lang.String">
       <column name="surname"/> 
+    </property>
+    
+    <property name="sex" type="java.lang.String">
+      <column name="sex"/> 
     </property>
 
 	<property name="login" type="java.lang.String">
@@ -23,6 +29,17 @@
     <property name="password" type="java.lang.String">
       <column name="password" not-null="true"/> 
     </property>
+  	
+  	<joined-subclass name="Teacher" table="teacher">
+  		<key column="user_id"/>
+  		<property name="courseTitle"/>
+  		<property name="activated"/>
+  	</joined-subclass>
+  	
+  	<joined-subclass name="Student" table="student">
+  		<key column="user_id"/>
+  		<property name="numStudent"/>
+  	</joined-subclass>
   	
   </class>
 </hibernate-mapping>

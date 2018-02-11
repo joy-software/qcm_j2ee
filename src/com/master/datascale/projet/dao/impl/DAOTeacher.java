@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.master.datascale.projet.bean.Teacher;
+import com.master.datascale.projet.bean.User;
 import com.master.datascale.projet.dao.IDAOTeacher;
 
 public class DAOTeacher extends HibernateDaoSupport implements IDAOTeacher{
@@ -37,7 +38,45 @@ public class DAOTeacher extends HibernateDaoSupport implements IDAOTeacher{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Teacher> getAll(String query) {
+	public List<Teacher> getAll() {
 		return (List<Teacher>)getHibernateTemplate().find("from Teacher");
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean validateLogin(String login) {
+		Boolean result = true;
+		
+		String query = "from User where login = ?";
+        Object[] queryParam = {login};
+		List<User> Users = (List<User>)getHibernateTemplate().
+				find(query,queryParam);
+		
+		if(Users.size()  > 0)
+		{
+			
+			result = false;
+		}
+		
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean isValidated(int id) {
+		// TODO Auto-generated method stub
+		Boolean result = false;
+		
+		String query = "from Teacher where user_id = ?";
+        Object[] queryParam = {id};
+		List<Teacher> Users = (List<Teacher>)getHibernateTemplate().
+				find(query,queryParam);
+		
+		if(Users.size()  > 0)
+		{
+			result = Users.get(0).isActivated();
+		}
+		
+		return result;
 	}
 }

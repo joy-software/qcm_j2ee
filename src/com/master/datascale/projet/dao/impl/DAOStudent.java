@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.master.datascale.projet.bean.Student;
+import com.master.datascale.projet.bean.User;
 import com.master.datascale.projet.dao.IDAOStudent;
 
 public class DAOStudent extends HibernateDaoSupport implements IDAOStudent{
@@ -37,7 +38,26 @@ public class DAOStudent extends HibernateDaoSupport implements IDAOStudent{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Student> getAll(String query) {
+	public List<Student> getAll() {
 		return (List<Student>)getHibernateTemplate().find("from Student");
+	}
+	
+	@Override
+	public boolean validateLogin(String login) {
+		Boolean result = true;
+		
+		String query = "from User where login = ?";
+        Object[] queryParam = {login};
+		@SuppressWarnings("unchecked")
+		List<User> Users = (List<User>)getHibernateTemplate().
+				find(query,queryParam);
+		
+		if(Users.size()  > 0)
+		{
+			
+			result = false;
+		}
+		
+		return result;
 	}
 }

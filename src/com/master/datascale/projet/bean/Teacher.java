@@ -21,15 +21,28 @@ public class Teacher extends User {
 	 * The title of the course this teacher is teaching.
 	 */
 	private String courseTitle;
+	/**
+	 * Check if this teacher has been actived by the administrator
+	 */
+	private boolean activated;
 
-	public Teacher(int id, String firstname, String surname,String login,String password,String courseTitle) {
-		super(id, firstname, surname,login,password);
+	public Teacher(int id, String firstname, String surname,String sex,String login,String password,String courseTitle,int type) {
+		super(id, firstname, surname,sex,login,password,type);
 		this.courseTitle = courseTitle;
+		this.activated = false;
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Teacher(int id, String firstname, String surname,String sex,String login,String password,String courseTitle,int type,boolean activated) {
+		super(id, firstname, surname,sex,login,password,type);
+		this.courseTitle = courseTitle;
+		this.activated = activated;
 		// TODO Auto-generated constructor stub
 	}
 
-	public Teacher(int id, String firstname, String surname,String login,String password) {
-		super(id, firstname, surname,login,password);
+	public Teacher(String firstname, String surname,String sex,String login,String password) {
+		super(firstname, surname,sex,login,password);
+		this.activated = false;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -51,7 +64,16 @@ public class Teacher extends User {
 
 	
 	public String toString() {
-		return "Teacher [courseTitle=" + courseTitle + ", firstname=" + firstname + ", surname=" + surname + "]";
+		return "Teacher [courseTitle=" + courseTitle + ",id=" + getId() + ", firstname=" + getFirstname() + ", surname="
+				+ getSurname() + ", login= "+getLogin() + "]";
+	}
+
+	public boolean isActivated() {
+		return activated;
+	}
+
+	public void setActivated(boolean activated) {
+		this.activated = activated;
 	}
 	
 	

@@ -37,7 +37,7 @@ public class DAOQuestion extends HibernateDaoSupport implements IDAOQuestion {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Question> getAll(String query) {
+	public List<Question> getAll() {
 		return (List<Question>)getHibernateTemplate().find("from Question");
 	}
 	

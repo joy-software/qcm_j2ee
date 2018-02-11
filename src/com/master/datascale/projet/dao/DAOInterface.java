@@ -46,5 +46,5 @@ public interface DAOInterface<T,Id extends Serializable> {
 	 * Get all the stored objects of this class from the database 
 	 * @return
 	 */
-	public List<T> getAll(String query);
+	public List<T> getAll();
 }

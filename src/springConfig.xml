@@ -43,5 +43,15 @@ http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 	<bean class="com.master.datascale.projet.dao.impl.DAOUser"  id="DAOUser">   
 		<property name="sessionFactory"  ref="mySessionFactory"/> 
 	</bean>
+	
+	<bean class="com.master.datascale.projet.dao.impl.DAOStudent"  id="DAOStudent">   
+		<property name="sessionFactory"  ref="mySessionFactory"/> 
+	</bean>
+	
+	<bean class="com.master.datascale.projet.dao.impl.DAOTeacher"  id="DAOTeacher">   
+		<property name="sessionFactory"  ref="mySessionFactory"/> 
+	</bean>
+	
+	
 
 </beans>

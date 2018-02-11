@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
@@ -7,20 +12,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>QCM APP | Teacher</title>
+  <title>QCM APP | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="content/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="content/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="content/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="content/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="content/dist/css/skins/_all-skins.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,7 +58,10 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini">
+<c:if test="${sessionScope.user == null}">
+	<logic:redirect forward="welcome"/>
+</c:if>
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -74,41 +82,8 @@ desired effect
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-                    <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      	<jsp:include page="logout.jsp" />
+      </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
@@ -117,17 +92,7 @@ desired effect
     <section class="sidebar">
 
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-
+     	<jsp:include page="userAside.jsp" />
       <!-- search form (Optional) -->
       <!--form action="#" method="get" class="sidebar-form">
         <div class="input-group">
@@ -144,21 +109,18 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">OPTIONS</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-edit"></i> <span>Create a QCM</span></a></li>
-        <li class=""><a href="#"><i class="fa fa-refresh"></i> <span>Update a QCM</span></a></li>
-        <li class=""><a href="#"><i class="fa fa-link"></i> <span>Add some questions</span></a></li>
-        <li class=""><a href="#"><i class="fa fa-trash"></i> <span>Delete a QCM</span></a></li>
-        <!--li class="treeview active">
-          <a href="#"><i class="fa fa-link"></i> <span>Manage accounts</span>
+        <li class="treeview active">
+          <a href="#"><i class="fa fa-cogs"></i> <span>Manage accounts</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
              </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Validate a teacher account</a></li>
-            <li><a href="#">Delete an account</a></li>
+          	<li><a href="./admin.do">All the accounts</a></li>
+            <li><a href="./admin_v.do">Validate a teacher account</a></li>
+            <li class="active"><a href="./admin_d.do">Delete an account</a></li>
           </ul>
-        </li!-->
+        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -171,11 +133,12 @@ desired effect
     <section class="content-header">
       <h1>
         Home
-        <small>Teacher Home</small>
+        <small>The administrator Home Page</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Create a QCM</li>
+        <li class="active">Home</li>
+        <li class="active">Delete</li>
       </ol>
     </section>
 
@@ -185,37 +148,48 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-        
-        <div class="box box-warning">
-            <div class="box-header with-border">
-              <h3 class="box-title">New QCM</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <form role="form">
-                <!-- text input -->
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" class="form-control" placeholder="Enter ...">
-                </div>
-
-                <!-- textarea -->
-                <div class="form-group">
-                  <label>Description</label>
-                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                </div>
-
-				<div class="box-footer">
-                	<button type="submit" class="btn btn-default">Cancel</button>
-                	<button type="submit" class="btn btn-info pull-right">Save</button>
-             	</div>
-            
-
-              </form>
-            </div>
-            <!-- /.box-body -->
-          </div>
-
+        <%int i = 0; %>
+        <c:forEach items="${sessionScope.teachers}" var="teacher">  
+       		<div class="col-md-4">
+	          <!-- Widget: user widget style 1 -->
+	          <div class="box box-widget widget-user">
+	            <!-- Add the bg color to the header using any of the bg-* classes -->
+	            <c:if test="${teacher.getSex().equals('Man')}">
+   					 <div class="widget-user-header bg-aqua-active">
+	   					 <h3 class="widget-user-username">${teacher.getFirstname()} ${teacher.getSurname()}</h3>
+		                 <h5 class="widget-user-desc">Teacher</h5>
+		             </div>
+		  		</c:if>
+                <c:if test="${teacher.getSex().equals('Woman')}">
+   					 <div class="widget-user-header bg-black" style="background: url('./content/dist/img/photo1.png') center center;">
+           				 <h3 class="widget-user-username">${teacher.getFirstname()} ${teacher.getSurname()}</h3>
+		                 <h5 class="widget-user-desc">Teacher</h5>
+		             </div>
+           		</c:if> 
+	            <div class="widget-user-image">
+	            	<c:if test="${teacher.getSex().equals('Man')}">
+	   					<img src="content/dist/img/user1-128x128.jpg" class="img-circle" alt="User Image">
+			  		</c:if>
+	                <c:if test="${teacher.getSex().equals('Woman')}">
+	   					<img src="content/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+			  		</c:if> 
+	              </div>
+	            <div class="box-footer">
+	              <div class="row">
+	                <!-- /.col -->
+	                <div class="col-sm-4 pull-right">
+	                  <a class="btn btn-app" href="./teacher_del.do?teacherId=<% out.println(i);%>">
+	                		<i class="fa fa-trash"></i> Delete
+	              	   </a>
+	                 </div>
+	              </div>
+	              <!-- /.row -->
+	            </div>
+	          </div>
+	          <!-- /.widget-user -->
+			</div>
+	    <%i++; %>
+		</c:forEach>        
     </section>
     <!-- /.content -->
   </div>
@@ -237,11 +211,11 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 3 -->
-<script src="jquery/dist/jquery.min.js"></script>
+<script src="content/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="content/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="content/dist/js/adminlte.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

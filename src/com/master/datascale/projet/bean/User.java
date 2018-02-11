@@ -20,25 +20,35 @@ public class User extends ActionForm {
 	/**
 	 * The id of the user
 	 */
-	public int id;
+	private int id;
 
 	/**
 	 * The first name of the User
 	 */
-	public String firstname;
+	private String firstname;
 	/**
 	 * The last name of the User
 	 */
-	public String surname;
+	private String surname;
 	/**
 	 * The login of the User
 	 */
-	public String login;
+	private String login;
 	
 	/**
 	 * The password of the User
 	 */
-	public String password;
+	private String password;
+	
+	/**
+	 * The type of the User
+	 */
+	private int type;
+	/**
+	 * The sex of the User
+	 */
+	private String sex;
+
 
 	/**
 	 * Constructor using fields
@@ -46,14 +56,47 @@ public class User extends ActionForm {
 	 * @param surname the last name of the user
 	 * @param id the id of the user
 	 */
-	public User(int id, String firstname, String surname,String login, String password) {
+	public User(int id, String firstname, String surname,String login, String password,int type) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
 		this.surname = surname;
 		this.login = login;
 		this.password = password;
+		this.type = type;
 	}
+	
+	/**
+	 * Constructor using fields
+	 * @param firstname the first name of the user
+	 * @param surname the last name of the user
+	 * @param id the id of the user
+	 */
+	public User(int id, String firstname, String surname,String sex,String login, String password,int type) {
+		super();
+		this.id = id;
+		this.firstname = firstname;
+		this.surname = surname;
+		this.login = login;
+		this.password = password;
+		this.type = type;
+		this.sex = sex;
+	}
+	
+	/**
+	 * Constructor using fields
+	 * @param firstname the first name of the user
+	 * @param surname the last name of the user
+	 * @param id the id of the user
+	 */
+	public User(String firstname, String surname,String login, String password,String sex) {
+		super();
+		this.firstname = firstname;
+		this.surname = surname;
+		this.login = login;
+		this.password = password;
+	}
+	
 	/*/
 	
 	/**
@@ -83,6 +126,24 @@ public class User extends ActionForm {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	/**
+	 * 
+	 * @return Return the type of the user
+	 */
+	public int getType() {
+		
+		return type;
+	}
+
+	/**
+	 * 
+	 * @param type the new value of the type user
+	 */
+	public void setType(int type) {
+		this.type = type;
+	}
+	
 	/**
 	 * Get the first name of the user
 	 * @return
@@ -150,6 +211,14 @@ public class User extends ActionForm {
 	public String toString() {
 		return "User [id=" + id + ", firstname=" + firstname + ", surname="
 				+ surname + ", login= "+login + "]";
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 

@@ -36,10 +36,11 @@ public class DAOUser extends HibernateDaoSupport implements IDAOUser {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<User> getAll(String query) {
+	public List<User> getAll() {
 		return (List<User>)getHibernateTemplate().find("from User");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean checkCredentials(String login, String password) {
 		
@@ -55,6 +56,37 @@ public class DAOUser extends HibernateDaoSupport implements IDAOUser {
 			System.out.println("C'est bon");
 			
 			result = true;
+		}
+		
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public User getUser(String login, String password) {
+		// TODO Auto-generated method stub
+		String query = "from User where login = ? and password = ?";
+        Object[] queryParam = {login, password};
+		List<User> Users = (List<User>)getHibernateTemplate().
+				find(query,queryParam);
+		
+		return Users.get(0);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean validateLogin(String login) {
+		Boolean result = true;
+		
+		String query = "from User where login = ?";
+        Object[] queryParam = {login};
+		List<User> Users = (List<User>)getHibernateTemplate().
+				find(query,queryParam);
+		
+		if(Users.size()  > 0)
+		{
+			
+			result = false;
 		}
 		
 		return result;

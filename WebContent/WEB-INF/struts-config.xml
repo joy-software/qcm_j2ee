@@ -42,7 +42,15 @@
     <form-beans>
   		<form-bean
             name="loginForm"
-            type="com.master.datascale.projet.bean.User"/>  
+            type="com.master.datascale.projet.bean.User"/> 
+         
+         <form-bean
+            name="studentForm"
+            type="com.master.datascale.projet.bean.Student"/> 
+            
+         <form-bean
+            name="teacherForm"
+            type="com.master.datascale.projet.bean.Teacher"/>   
   
     <!-- sample form bean descriptor for an ActionForm
         <form-bean
@@ -95,25 +103,108 @@
             <!-- Forwards to Welcome.jsp -->
         <action
             path="/Welcome"
-            forward="/pages/Authentification.jsp"/>
+            forward="/pages/Accueil.html">
+             <forward name="login" path="/pages/Authentification.jsp"/>
+        </action>
+        
+        <action
+            path="/login"
+            forward ="/pages/Authentification.jsp">
+        </action>
 		
 		<action
-            path="/login"
+            path="/register"
+            forward="/pages/ChooseRegistration.jsp">
+        </action>
+        
+        <action
+            path="/s_register"
+            forward="/pages/Registration.jsp">
+        </action>
+		
+		<action
+            path="/t_register"
+            forward="/pages/TRegistration.jsp">
+        </action>
+        
+        <action
+            path="/student"
+            forward="/pages/student.jsp">
+        </action>
+		
+		<action
+            path="/admin"
+            forward="/pages/admin.jsp">
+        </action>
+        
+        <action
+            path="/admin_v"
+            forward="/pages/admin_v.jsp">
+        </action>
+        
+        <action
+            path="/admin_d"
+            forward="/pages/admin_d.jsp">
+        </action>
+		
+		<action
+            path="/Login"
             type="com.master.datascale.projet.action.ActionLogin"
             name="loginForm">
-        <forward name="admin" path="/pages/admin.html"/>
+        <forward name="register" path="/pages/Registration.jsp"/>
         <forward name="login" path="/pages/Authentification.jsp"/>
-        <forward name="student" path="/pages/student.html"/>
-        <forward name="teacher" path="/pages/teacher.html"/>
+        <forward name="admin" path="/pages/admin.jsp"/>
+        <forward name="student" path="/pages/student.jsp"/>
+        <forward name="teacher" path="/pages/teacher.jsp"/>
 		</action>
 		
 		<action
-            path="/callRegister"
-            type="com.master.datascale.projet.action.ActionCallRegister">
-        <forward name="register" path="/pages/Registration.jsp"/>
+            path="/Register"
+            type="com.master.datascale.projet.action.ActionRegister">
+        <forward name="s_register" path="/pages/Registration.jsp"/>
+        <forward name="t_register" path="/pages/TRegistration.jsp"/>
+        <forward name="login" path="/pages/Authentification.jsp"/>
 		</action>
 		
-
+		<action
+            path="/s_Register"
+            type="com.master.datascale.projet.action.ActionRegister"
+            name="studentForm">
+        <forward name="s_register" path="/pages/Registration.jsp"/>
+        <forward name="login" path="/pages/Authentification.jsp"/>
+		</action>
+		
+		<action
+            path="/t_Register"
+            type="com.master.datascale.projet.action.ActionRegister"
+            name="teacherForm">
+        <forward name="t_register" path="/pages/TRegistration.jsp"/>
+        <forward name="login" path="/pages/Authentification.jsp"/>
+		</action>
+		
+		<action
+            path="/Logout"
+            type="com.master.datascale.projet.action.ActionLogout">
+        <forward name="login" path="/pages/Authentification.jsp"/>
+		</action>
+		
+		<action
+            path="/teacher_act"
+            type="com.master.datascale.projet.action.ActionAdmin">
+        <forward name="admin" path="/pages/admin.jsp"/>
+		</action>
+		
+		<action
+            path="/teacher_dea"
+            type="com.master.datascale.projet.action.ActionAdmin">
+        <forward name="admin" path="/pages/admin.jsp"/>
+		</action>
+		
+		<action
+            path="/teacher_del"
+            type="com.master.datascale.projet.action.ActionAdmin">
+        <forward name="admin" path="/pages/admin.jsp"/>
+		</action>
     <!-- sample input and input submit actions
 
         <action
