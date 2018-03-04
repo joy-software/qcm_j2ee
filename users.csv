@@ -1,0 +1,3 @@
+id,type,firstname,surname,sex,login,password
+1,0,"admin		","admin	",Man,admin,administrateur
+2,1,Brigitte,Groelas,Woman,brig,brigitte

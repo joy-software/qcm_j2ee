@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.master.datascale.projet.bean">
+	<class name="Qcm" table="Qcm">
+		<id name="id">
+			<column name="idQcm" />
+			<generator class="increment" />
+		</id>
+
+		<property name="name" />
+
+		<property name="description" />
+
+		<property name="difficulty" />
+
+		<set name="Students" inverse="false" lazy="true"
+			fetch="select" cascade="all">
+			<key column="idQcm" not-null="true" />
+			<many-to-many entity-name="com.master.datascale.projet.bean.User"
+				column="user_id"></many-to-many>
+		</set>
+
+		 <set name="Questions" table="Question" inverse="true" cascade="all"> 
+			<key column="idQcm" not-null="true" /> 
+			<one-to-many class="com.master.datascale.projet.bean.Question"/> 
+		</set>
+	</class>
+</hibernate-mapping>

@@ -62,22 +62,25 @@
       </div>
     </header>
 
-    <section class="bg-primary" id="about" style="padding :8rem 0">
+	<section class="bg-primary" id="about" style="padding :8rem 0">
       <div class="container">
         <div class="row">
-		<div class="col-lg-6 mr-auto text-center">
-           <p style="color:white;text-transform: uppercase; Font-Weight: Bold;">Sign In</p><br>
-		    <a class="btn btn-primary btn-xl js-scroll-trigger" href="./login.do">
-				<i class="fa fa-sign-in fa-3x mb-3 sr-contact"></i>
-			</a>
+		<div class="col-lg-6 mr-auto text-center"> 
+			<form action="./login.do" method="post">
+				<p style="color:white;text-transform: uppercase; Font-Weight: Bold;">Sign In</p><br>
+					<button type="submit" class="btn btn-primary btn-xl js-scroll-trigger" />
+					<i class="fa fa-sign-in fa-3x mb-3 sr-contact"></i>
+			</form>
 		</div>
+		
 		<div class="col-lg-6 mr-auto text-center">
-		  <p style="color:white;text-transform: uppercase; Font-Weight: Bold;">Create New Account</p><br>
-		    <a class="btn btn-primary btn-xl js-scroll-trigger" href="./register.do">
-				<i class="fa fa-user-o fa-3x mb-3 sr-contact"></i>
-			</a>
-        </div>
-      	</div>
+			<form action="./register.do" method="post">
+				<p style="color:white;text-transform: uppercase; Font-Weight: Bold;">Create New Account</p><br>
+					<button type="submit" class="btn btn-primary btn-xl js-scroll-trigger" >
+					<i class="fa fa-user-o fa-3x mb-3 sr-contact"></i>
+			</form>
+		</div>
+      </div>
       </div>
     </section>
 

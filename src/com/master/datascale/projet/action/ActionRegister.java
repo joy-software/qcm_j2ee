@@ -30,7 +30,7 @@ public class ActionRegister extends Action {
 		String type = "";
 		ApplicationContext context = new ClassPathXmlApplicationContext("springConfig.xml");
 		
-		System.out.println(url);
+		System.out.println(url); //Register.do
 		System.out.println("Je suis dans ActionRegister");
 		
 		if(url.equalsIgnoreCase("/Register.do"))
@@ -66,7 +66,7 @@ public class ActionRegister extends Action {
 			else
 			{
 				request.getSession().removeAttribute("success");
-				request.getSession().setAttribute("badlogin","This login is already used!!");
+				request.getSession().setAttribute("bad login","This login is already used!!");
 				forward = "s_register";
 			}
 		}

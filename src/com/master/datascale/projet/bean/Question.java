@@ -2,6 +2,8 @@ package com.master.datascale.projet.bean;
 
 public class Question {
 
+	private Qcm qcm;
+
 	public Question() {
 		// TODO Auto-generated constructor stub
 	}
@@ -84,6 +86,14 @@ public class Question {
 	
 	public String toString() {
 		return "Question [id=" + id + ", entitled=" + entitled + ", goodAnswer=" + goodAnswer + "]";
+	}
+
+	public Qcm getQcm() {
+		return qcm;
+	}
+
+	public void setQcm(Qcm qcm) {
+		this.qcm = qcm;
 	}
 	
 	

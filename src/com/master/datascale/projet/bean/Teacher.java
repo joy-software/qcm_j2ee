@@ -1,5 +1,8 @@
 package com.master.datascale.projet.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 
  * The teacher Class model
@@ -25,6 +28,8 @@ public class Teacher extends User {
 	 * Check if this teacher has been actived by the administrator
 	 */
 	private boolean activated;
+
+	private Set<Qcm> Qcms = new HashSet<Qcm>();
 
 	public Teacher(int id, String firstname, String surname,String sex,String login,String password,String courseTitle,int type) {
 		super(id, firstname, surname,sex,login,password,type);
@@ -74,6 +79,14 @@ public class Teacher extends User {
 
 	public void setActivated(boolean activated) {
 		this.activated = activated;
+	}
+
+	public Set<Qcm> getQcms() {
+		return Qcms;
+	}
+
+	public void setQcms(Set<Qcm> qcms) {
+		Qcms = qcms;
 	}
 	
 	

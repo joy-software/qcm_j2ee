@@ -4,9 +4,10 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.master.datascale.projet.bean">
   <class name="User" table="Users">
-  	<id name="id" column="id">
+  	<id name="id" column="idUser">
   		<generator class="increment"/>
   	</id>
+  	
   	
   	<property name="type"/>
   	
@@ -34,12 +35,21 @@
   		<key column="user_id"/>
   		<property name="courseTitle"/>
   		<property name="activated"/>
+  		<set name="Qcms" table="Qcm" inverse="true" lazy="true" fetch="select">
+	  		<key column="idUser"/>
+	  		<many-to-many entity-name="com.master.datascale.projet.bean.Qcm" column="idQcm"/>
+  		</set>
   	</joined-subclass>
   	
   	<joined-subclass name="Student" table="student">
   		<key column="user_id"/>
   		<property name="numStudent"/>
-  	</joined-subclass>
+  		<set name="Qcms" table="Qcm" inverse="true" lazy="true" fetch="select">
+	  		<key column="idUser"/>
+	  		<many-to-many entity-name="com.master.datascale.projet.bean.Qcm" column="idQcm"/>
+  		</set>
   	
+  	</joined-subclass>
+  
   </class>
 </hibernate-mapping>

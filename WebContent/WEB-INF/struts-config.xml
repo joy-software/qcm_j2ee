@@ -50,7 +50,11 @@
             
          <form-bean
             name="teacherForm"
-            type="com.master.datascale.projet.bean.Teacher"/>   
+            type="com.master.datascale.projet.bean.Teacher"/>
+            
+         <form-bean
+            name="qcmForm"
+            type="com.master.datascale.projet.bean.Qcm"/>   
   
     <!-- sample form bean descriptor for an ActionForm
         <form-bean
@@ -146,6 +150,21 @@
             path="/admin_d"
             forward="/pages/admin_d.jsp">
         </action>
+        
+        <action
+            path="/teacher"
+            forward="/pages/teacher.jsp">
+        </action>
+        
+        <action
+            path="/createqcm"
+            forward="/pages/teacher_c.jsp">
+        </action>
+        
+        <action
+            path="/qcm_addQ"
+            forward="/pages/teacher_q.jsp">
+        </action>
 		
 		<action
             path="/Login"
@@ -205,6 +224,20 @@
             type="com.master.datascale.projet.action.ActionAdmin">
         <forward name="admin" path="/pages/admin.jsp"/>
 		</action>
+		
+		<action
+            path="/createQcm"
+            type="com.master.datascale.projet.action.ActionTeacher"
+            name="qcmForm">
+        <forward name="teacher" path="/pages/teacher.jsp"/>
+		</action>
+		
+		<action
+            path="/qcm_del"
+            type="com.master.datascale.projet.action.ActionTeacher">
+        <forward name="teacher" path="/pages/teacher.jsp"/>
+		</action>
+		
     <!-- sample input and input submit actions
 
         <action
@@ -288,4 +321,3 @@
   </plug-in>
 
 </struts-config>
-

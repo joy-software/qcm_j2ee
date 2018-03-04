@@ -16,7 +16,6 @@ public class ActionLogout extends Action {
 			HttpServletRequest request, HttpServletResponse response)
 	{
 		System.out.println("Je suis dans ActionLogout");
-		String forward = "login";
 		
 		request.getSession().removeAttribute("user");
 		request.getSession().removeAttribute("login");
@@ -24,6 +23,7 @@ public class ActionLogout extends Action {
 		request.getSession().removeAttribute("validate");
 		request.getSession().removeAttribute("teachers");
 		
+		String forward = "login";
 		return mapping.findForward(forward);
 	}
 

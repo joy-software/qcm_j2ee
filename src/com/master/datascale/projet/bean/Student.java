@@ -1,5 +1,8 @@
 package com.master.datascale.projet.bean;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Student extends User {
 	
 	/**
@@ -7,6 +10,7 @@ public class Student extends User {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private Set<Qcm> Qcms = new HashSet<Qcm>();
 	private String numStudent;
 	/**
 	 * Return the number of the Student
@@ -51,6 +55,14 @@ public class Student extends User {
 	public String toString() {
 		return "Student [numStudent=" + numStudent + ", id=" + getId() + ", firstname=" + getFirstname() + ", surname="
 				+ getSurname() + ", login= "+getLogin() + "]";
+	}
+
+	public Set<Qcm> getQcms() {
+		return Qcms;
+	}
+
+	public void setQcms(Set<Qcm> qcms) {
+		Qcms = qcms;
 	}
 	
 }

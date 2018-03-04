@@ -109,7 +109,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">OPTIONS</li>
         <!-- Optionally, you can add icons to the links -->
-        <c:choose> 
+  		<c:choose> 
 			<c:when test="${sessionScope.qcms.isEmpty()}">
 		 		 <li class="active"><a href="./createqcm.do"><i class="fa fa-edit"></i> <span>Create a QCM</span></a></li>
 		 	</c:when>
@@ -118,6 +118,7 @@ desired effect
         		 <li><a href="./createqcm.do"><i class="fa fa-edit"></i> <span>Create a QCM</span></a></li>
 	        </c:otherwise>
 	    </c:choose>
+            
         <li class=""><a href="#"><i class="fa fa-refresh"></i> <span>Update a QCM</span></a></li>
         <li class=""><a href="#"><i class="fa fa-link"></i> <span>Add some questions</span></a></li>
         <li class=""><a href="#"><i class="fa fa-trash"></i> <span>Delete a QCM</span></a></li>
@@ -158,77 +159,44 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-        <c:choose> 
-			<c:when test="${sessionScope.qcms.isEmpty()}">
-		 		<div class="box box-warning">
-		            <div class="box-header with-border">
-		              <h3 class="box-title">New QCM</h3>
-		            </div>
-		            <!-- /.box-header -->
-		            <div class="box-body">
-		              <form role="form" method="post" action="createQcm.do">
-		                <!-- text input -->
-		                <div class="form-group">
-		                  <label>Name</label>
-		                  <input type="text" class="form-control" placeholder="Enter ..." name="name">
-		                </div>
-		
-		                <!-- textarea -->
-		                <div class="form-group">
-		                  <label>Description</label>
-		                  <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"></textarea>
-		                </div>
-		                
-		                <!-- textarea -->
-		                <div class="form-group">
-		                  <label>Level of difficulty</label>
-		                  <select class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" name="difficulty">
-			                  <option selected="selected">V</option>
-			                  <option>IV</option>
-			                  <option>III</option>
-			                  <option>II</option>
-			                  <option>I</option>
-			                </select>
-		                </div>
-		
-						<div class="box-footer">
-		                	<button type="submit" class="btn btn-info pull-right">Save</button>
-		             	</div>	
-		              </form>
-		            </div>
-		            <!-- /.box-body -->
-		       </div> 					
-		 	</c:when>
-			<c:otherwise>
-				<%int i = 0; %>
-	    		<c:forEach items="${sessionScope.qcms}" var="qcm">  
-	    			<div class="col-md-3">
-			          <div class="box box-success box-solid">
-			            <div class="box-header with-border">
-			              <h3 class="box-title">${qcm.getName()}</h3>
-							<span class="badge bg-red">${qcm.getDifficulty()}</span>
-			              <div class="box-tools pull-right">
-			              	<a href="./qcm_addQ.do?qcmId=<% out.println(i);%>" class="btn btn-box-tool"><i class="fa fa-link"></i>
-			                </a>
-			                <a href="./qcm_del.do?qcmId=<% out.println(i);%>" class="btn btn-box-tool"><i class="fa fa-trash"></i>
-			                </a>
-			                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-			                </button>
-			              </div>
-			              <!-- /.box-tools -->
-			            </div>
-			            <!-- /.box-header -->
-			            <div class="box-body">
-			              ${qcm.getDescription()}
-			            </div>
-			            <!-- /.box-body -->
-			          </div>
-			          <!-- /.box -->
-			        </div>
-			        <%i++; %>
-        		</c:forEach>
-	    	</c:otherwise>
-	    </c:choose>
+        <div class="box box-warning">
+            <div class="box-header with-border">
+              <h3 class="box-title">New QCM</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <form role="form" method="post" action="createQcm.do">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="Enter ..." name="name">
+                </div>
+
+                <!-- textarea -->
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"></textarea>
+                </div>
+                
+                <!-- textarea -->
+                <div class="form-group">
+                  <label>Level of difficulty</label>
+                  <select class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" name="difficulty">
+	                  <option selected="selected">V</option>
+	                  <option>IV</option>
+	                  <option>III</option>
+	                  <option>II</option>
+	                  <option>I</option>
+	                </select>
+                </div>
+
+				<div class="box-footer">
+                	<button type="submit" class="btn btn-info pull-right">Save</button>
+             	</div>	
+              </form>
+            </div>
+	            <!-- /.box-body -->
+	       </div> 					
         
     </section>
     <!-- /.content -->

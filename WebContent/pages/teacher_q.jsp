@@ -109,7 +109,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">OPTIONS</li>
         <!-- Optionally, you can add icons to the links -->
-        <c:choose> 
+  		<c:choose> 
 			<c:when test="${sessionScope.qcms.isEmpty()}">
 		 		 <li class="active"><a href="./createqcm.do"><i class="fa fa-edit"></i> <span>Create a QCM</span></a></li>
 		 	</c:when>
@@ -118,6 +118,7 @@ desired effect
         		 <li><a href="./createqcm.do"><i class="fa fa-edit"></i> <span>Create a QCM</span></a></li>
 	        </c:otherwise>
 	    </c:choose>
+            
         <li class=""><a href="#"><i class="fa fa-refresh"></i> <span>Update a QCM</span></a></li>
         <li class=""><a href="#"><i class="fa fa-link"></i> <span>Add some questions</span></a></li>
         <li class=""><a href="#"><i class="fa fa-trash"></i> <span>Delete a QCM</span></a></li>
@@ -158,79 +159,116 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-        <c:choose> 
-			<c:when test="${sessionScope.qcms.isEmpty()}">
-		 		<div class="box box-warning">
-		            <div class="box-header with-border">
-		              <h3 class="box-title">New QCM</h3>
-		            </div>
-		            <!-- /.box-header -->
-		            <div class="box-body">
-		              <form role="form" method="post" action="createQcm.do">
-		                <!-- text input -->
-		                <div class="form-group">
-		                  <label>Name</label>
-		                  <input type="text" class="form-control" placeholder="Enter ..." name="name">
-		                </div>
-		
-		                <!-- textarea -->
-		                <div class="form-group">
-		                  <label>Description</label>
-		                  <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"></textarea>
-		                </div>
-		                
-		                <!-- textarea -->
-		                <div class="form-group">
-		                  <label>Level of difficulty</label>
-		                  <select class="form-control select2" style="width: 100%;" tabindex="-1" aria-hidden="true" name="difficulty">
-			                  <option selected="selected">V</option>
-			                  <option>IV</option>
-			                  <option>III</option>
-			                  <option>II</option>
-			                  <option>I</option>
-			                </select>
-		                </div>
-		
-						<div class="box-footer">
-		                	<button type="submit" class="btn btn-info pull-right">Save</button>
-		             	</div>	
-		              </form>
-		            </div>
-		            <!-- /.box-body -->
-		       </div> 					
-		 	</c:when>
-			<c:otherwise>
-				<%int i = 0; %>
-	    		<c:forEach items="${sessionScope.qcms}" var="qcm">  
-	    			<div class="col-md-3">
-			          <div class="box box-success box-solid">
-			            <div class="box-header with-border">
-			              <h3 class="box-title">${qcm.getName()}</h3>
-							<span class="badge bg-red">${qcm.getDifficulty()}</span>
-			              <div class="box-tools pull-right">
-			              	<a href="./qcm_addQ.do?qcmId=<% out.println(i);%>" class="btn btn-box-tool"><i class="fa fa-link"></i>
-			                </a>
-			                <a href="./qcm_del.do?qcmId=<% out.println(i);%>" class="btn btn-box-tool"><i class="fa fa-trash"></i>
-			                </a>
-			                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-			                </button>
-			              </div>
-			              <!-- /.box-tools -->
-			            </div>
-			            <!-- /.box-header -->
-			            <div class="box-body">
-			              ${qcm.getDescription()}
-			            </div>
-			            <!-- /.box-body -->
-			          </div>
-			          <!-- /.box -->
-			        </div>
-			        <%i++; %>
-        		</c:forEach>
-	    	</c:otherwise>
-	    </c:choose>
-        
-    </section>
+    <div class="box box-primary">
+            <div class="box-header ui-sortable-handle" style="cursor: move;">
+              <i class="ion ion-clipboard"></i>
+
+              <h3 class="box-title">To Do List</h3>
+
+              <div class="box-tools pull-right">
+                <ul class="pagination pagination-sm inline">
+                  <li><a href="#">«</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+              <ul class="todo-list ui-sortable">
+                <li>
+                  <!-- drag handle -->
+                  <span class="handle ui-sortable-handle">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <i class="fa fa-ellipsis-v"></i>
+                      </span>
+                  <!-- checkbox -->
+                  <input type="checkbox" value="">
+                  <!-- todo text -->
+                  <span class="text">Design a nice theme</span>
+                  <!-- Emphasis label -->
+                  <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                  <!-- General tools such as edit or delete-->
+                  <div class="tools">
+                    <i class="fa fa-edit"></i>
+                    <i class="fa fa-trash-o"></i>
+                  </div>
+                </li>
+                <li>
+                      <span class="handle ui-sortable-handle">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <i class="fa fa-ellipsis-v"></i>
+                      </span>
+                  <input type="checkbox" value="">
+                  <span class="text">Make the theme responsive</span>
+                  <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+                  <div class="tools">
+                    <i class="fa fa-edit"></i>
+                    <i class="fa fa-trash-o"></i>
+                  </div>
+                </li>
+                <li>
+                      <span class="handle ui-sortable-handle">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <i class="fa fa-ellipsis-v"></i>
+                      </span>
+                  <input type="checkbox" value="">
+                  <span class="text">Let theme shine like a star</span>
+                  <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+                  <div class="tools">
+                    <i class="fa fa-edit"></i>
+                    <i class="fa fa-trash-o"></i>
+                  </div>
+                </li>
+                <li>
+                      <span class="handle ui-sortable-handle">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <i class="fa fa-ellipsis-v"></i>
+                      </span>
+                  <input type="checkbox" value="">
+                  <span class="text">Let theme shine like a star</span>
+                  <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
+                  <div class="tools">
+                    <i class="fa fa-edit"></i>
+                    <i class="fa fa-trash-o"></i>
+                  </div>
+                </li>
+                <li>
+                      <span class="handle ui-sortable-handle">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <i class="fa fa-ellipsis-v"></i>
+                      </span>
+                  <input type="checkbox" value="">
+                  <span class="text">Check your messages and notifications</span>
+                  <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+                  <div class="tools">
+                    <i class="fa fa-edit"></i>
+                    <i class="fa fa-trash-o"></i>
+                  </div>
+                </li>
+                <li>
+                      <span class="handle ui-sortable-handle">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <i class="fa fa-ellipsis-v"></i>
+                      </span>
+                  <input type="checkbox" value="">
+                  <span class="text">Let theme shine like a star</span>
+                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
+                  <div class="tools">
+                    <i class="fa fa-edit"></i>
+                    <i class="fa fa-trash-o"></i>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix no-border">
+              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+            </div>
+          </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

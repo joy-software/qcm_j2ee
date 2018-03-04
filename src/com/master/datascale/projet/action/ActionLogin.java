@@ -11,8 +11,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.master.datascale.projet.bean.User;
+import com.master.datascale.projet.dao.IDAOQcm;
 import com.master.datascale.projet.dao.IDAOTeacher;
 import com.master.datascale.projet.dao.IDAOUser;
+import com.master.datascale.projet.dao.impl.DAOQcm;
 import com.master.datascale.projet.dao.impl.DAOTeacher;
 import com.master.datascale.projet.dao.impl.DAOUser;
 
@@ -84,6 +86,8 @@ public class ActionLogin extends Action {
 
 						if(daoTeacher.isValidated(user.getId()))
 						{
+							IDAOQcm daoQcm = (DAOQcm)context.getBean("DAOQcm");
+							request.getSession().setAttribute("qcms",daoQcm.getAll());
 							request.getSession().setAttribute("user",user);						
 							forward = "teacher";
 						}
