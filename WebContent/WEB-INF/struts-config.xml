@@ -55,6 +55,14 @@
          <form-bean
             name="qcmForm"
             type="com.master.datascale.projet.bean.Qcm"/>   
+            
+         <form-bean
+            name="questionForm"
+            type="com.master.datascale.projet.bean.Question"/> 
+            
+         <form-bean
+            name="answerForm"
+            type="com.master.datascale.projet.bean.Answer"/>   
   
     <!-- sample form bean descriptor for an ActionForm
         <form-bean
@@ -161,11 +169,6 @@
             forward="/pages/teacher_c.jsp">
         </action>
         
-        <action
-            path="/qcm_addQ"
-            forward="/pages/teacher_q.jsp">
-        </action>
-		
 		<action
             path="/Login"
             type="com.master.datascale.projet.action.ActionLogin"
@@ -233,10 +236,38 @@
 		</action>
 		
 		<action
+            path="/createQuestion"
+            type="com.master.datascale.projet.action.ActionTeacher"
+            name="questionForm">
+        <forward name="teacher" path="/pages/teacher_q.jsp"/>
+		</action>
+		
+		<action
+            path="/createAnswer"
+            type="com.master.datascale.projet.action.ActionTeacher"
+            name="answerForm">
+        <forward name="teacher" path="/pages/teacher_q.jsp"/>
+		</action>
+		
+		<action
             path="/qcm_del"
             type="com.master.datascale.projet.action.ActionTeacher">
         <forward name="teacher" path="/pages/teacher.jsp"/>
 		</action>
+		
+		<action
+            path="/qcm_addQ"
+             type="com.master.datascale.projet.action.ActionTeacher">
+	        <forward name="teacher" path="/pages/teacher_q.jsp"/>
+        </action>
+        
+        <action
+            path="/qcm_try"
+            type="com.master.datascale.projet.action.ActionStudent">
+	        <forward name="student" path="/pages/student_c.jsp"/>
+        </action>
+        
+		
 		
     <!-- sample input and input submit actions
 

@@ -2,6 +2,11 @@ package com.master.datascale.projet.dao;
 
 import com.master.datascale.projet.bean.Teacher;
 
+/**
+ * 
+ * @author Joy Jedidja
+ *
+ */
 public interface IDAOTeacher extends DAOInterface<Teacher, Integer> {
 	
 	/**

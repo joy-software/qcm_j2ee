@@ -18,7 +18,11 @@ import com.master.datascale.projet.dao.impl.DAOStudent;
 import com.master.datascale.projet.dao.impl.DAOTeacher;
 
 
-
+/**
+ * The Action that handles the registration behaviors
+ * @author Joy Jedidja
+ *
+ */
 public class ActionRegister extends Action {
 	
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -61,7 +65,7 @@ public class ActionRegister extends Action {
 				daoStudent.save(donnees);
 				request.getSession().setAttribute("success","Registration complete, try login!!!");
 				
-				System.out.println("Votre identité: "+donnees);
+				//System.out.println("Votre identitï¿½: "+donnees);
 			}
 			else
 			{
@@ -84,7 +88,7 @@ public class ActionRegister extends Action {
 				daoTeacher.save(donnees);
 				request.getSession().setAttribute("success","Registration complete, try login!!!");
 				
-				System.out.println("Votre identité: "+donnees);
+//				System.out.println("Votre identitï¿½: "+donnees);
 			}
 			else
 			{

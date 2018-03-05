@@ -8,6 +8,11 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.master.datascale.projet.bean.Question;
 import com.master.datascale.projet.dao.IDAOQuestion;
 
+/**
+ * 
+ * @author Joy Jedidja
+ *
+ */
 public class DAOQuestion extends HibernateDaoSupport implements IDAOQuestion {
 
 	@Override

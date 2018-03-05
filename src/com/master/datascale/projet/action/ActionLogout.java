@@ -9,7 +9,11 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 
-
+/**
+ * The Action that handles the logout
+ * @author Joy Jedidja
+ *
+ */
 public class ActionLogout extends Action {
 	
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -22,6 +26,9 @@ public class ActionLogout extends Action {
 		request.getSession().removeAttribute("success");
 		request.getSession().removeAttribute("validate");
 		request.getSession().removeAttribute("teachers");
+		request.getSession().removeAttribute("qcms");
+		request.getSession().removeAttribute("selectedQcm");
+		request.getSession().removeAttribute("questions");
 		
 		String forward = "login";
 		return mapping.findForward(forward);

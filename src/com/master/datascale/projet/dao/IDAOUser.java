@@ -2,6 +2,11 @@ package com.master.datascale.projet.dao;
 
 import com.master.datascale.projet.bean.User;
 
+/**
+ * 
+ * @author Joy Jedidja
+ *
+ */
 public interface IDAOUser extends DAOInterface<User, Integer> {
 	
 	/**

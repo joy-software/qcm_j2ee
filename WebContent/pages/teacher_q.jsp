@@ -114,13 +114,13 @@ desired effect
 		 		 <li class="active"><a href="./createqcm.do"><i class="fa fa-edit"></i> <span>Create a QCM</span></a></li>
 		 	</c:when>
 			<c:otherwise>
-				 <li class="active"><a href="./teacher.do"><i class="fa fa-home"></i> <span>All QCM</span></a></li>
+				 <li ><a href="./teacher.do"><i class="fa fa-home"></i> <span>All QCM</span></a></li>
         		 <li><a href="./createqcm.do"><i class="fa fa-edit"></i> <span>Create a QCM</span></a></li>
 	        </c:otherwise>
 	    </c:choose>
             
         <li class=""><a href="#"><i class="fa fa-refresh"></i> <span>Update a QCM</span></a></li>
-        <li class=""><a href="#"><i class="fa fa-link"></i> <span>Add some questions</span></a></li>
+        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Add some questions</span></a></li>
         <li class=""><a href="#"><i class="fa fa-trash"></i> <span>Delete a QCM</span></a></li>
         <!--li class="treeview active">
           <a href="#"><i class="fa fa-link"></i> <span>Manage accounts</span>
@@ -159,116 +159,89 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-    <div class="box box-primary">
-            <div class="box-header ui-sortable-handle" style="cursor: move;">
-              <i class="ion ion-clipboard"></i>
-
-              <h3 class="box-title">To Do List</h3>
-
-              <div class="box-tools pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">«</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">»</a></li>
-                </ul>
-              </div>
+    <div class="box box-warning">
+            <div class="box-header with-border">
+              <h3 class="box-title">New Question</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-              <ul class="todo-list ui-sortable">
-                <li>
-                  <!-- drag handle -->
-                  <span class="handle ui-sortable-handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <!-- checkbox -->
-                  <input type="checkbox" value="">
-                  <!-- todo text -->
-                  <span class="text">Design a nice theme</span>
-                  <!-- Emphasis label -->
-                  <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle ui-sortable-handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Make the theme responsive</span>
-                  <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle ui-sortable-handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle ui-sortable-handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle ui-sortable-handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Check your messages and notifications</span>
-                  <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle ui-sortable-handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-              </ul>
+              <form role="form" method="post" action="createQuestion.do">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Entitled</label>
+                  <input type="text" class="form-control" placeholder="Enter ..." name="entitled">
+                </div>
+                
+				<div class="box-footer">
+                	<button type="submit" class="btn btn-info pull-right">Save</button>
+             	</div>	
+              </form>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix no-border">
-              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+	            <!-- /.box-body -->
+	</div> 					
+    <c:choose> 
+		<c:when test="${!sessionScope.selectedQcm.getQuestions().isEmpty()}">
+		
+   	<div class="box box-primary">
+           <div class="box-header ui-sortable-handle" style="cursor: move;">
+             <i class="ion ion-clipboard"></i>
+
+             <h3 class="box-title">${sessionScope.selectedQcm.getName()}</h3>
+
+
+			 <div class="box-body">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" rows="3" placeholder="${sessionScope.selectedQcm.getDescription()}" disabled></textarea>
+                </div>
+                <%int i = 0; %>
+        		<c:forEach items="${sessionScope.quests}" var="question" varStatus="loop">  
+	                <div class="form-group">
+	                
+	                  <label><%out.println(i+1); %>${"."} ${question.getEntitled()}</label>
+	                  
+	                   <c:forEach items="${sessionScope.questions.get(loop.index)}" var="answer">  
+			                   <div class="checkbox">
+			                    <label>
+			                      <input type="checkbox">
+			                      ${answer.getValue()}
+			                    </label>
+			                  </div>
+		                  </c:forEach>
+	                 
+	                
+	                  <div class="box box-warning">
+			            <div class="box-header with-border">
+			              <h3 class="box-title">New Answer</h3>
+			            </div>
+			            <!-- /.box-header -->
+			            <div class="box-body">
+			              <form role="form" method="post" action="createAnswer.do?questionId=<% out.println(i);%>">
+			                <!-- text input -->
+			                <div class="form-group">
+			                  <label>Value</label>
+			                  <input type="text" class="form-control" placeholder="Enter ..." name="value">
+			                </div>
+			                
+							<div class="box-footer">
+			                	<button type="submit" class="btn btn-info pull-right">Save</button>
+			             	</div>	
+			              </form>
+			            </div>
+				            <!-- /.box-body -->
+					</div>
+	                 
+	                 </div>
+	                <%i++; %>
+                </c:forEach>
+	          </div>
+
+              
             </div>
+            
           </div>
+ 		</c:when>
+ 	</c:choose>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

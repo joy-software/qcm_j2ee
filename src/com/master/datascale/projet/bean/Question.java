@@ -1,12 +1,25 @@
 package com.master.datascale.projet.bean;
 
-public class Question {
+import java.util.HashSet;
+import java.util.Set;
+
+import org.apache.struts.action.ActionForm;
+
+public class Question extends ActionForm{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Qcm qcm;
+	private Set<Answer> Answers = new HashSet<Answer>();
+	
 
 	public Question() {
 		// TODO Auto-generated constructor stub
 	}
+
 	
 
 	/**
@@ -23,6 +36,29 @@ public class Question {
 	 * a list of answer id related to this question separated by '#' symbol 
 	 */
 	private String goodAnswer;
+	
+	
+	
+	/**
+	 * Constructor using fields
+	 * @param entitled {@link #entitled}
+	 */
+	public Question(String entitled) {
+		super();
+		this.entitled = entitled;
+	}
+	
+	/**
+	 * Constructor using fields
+	 * @param entitled {@link #entitled}
+	 */
+	public Question(String entitled,Qcm qcm) {
+		super();
+		this.entitled = entitled;
+		this.qcm = qcm;
+	}
+
+
 	
 	/**
 	 * Constructor using fields
@@ -94,6 +130,20 @@ public class Question {
 
 	public void setQcm(Qcm qcm) {
 		this.qcm = qcm;
+	}
+
+
+	public Set<Answer> getAnswers() {
+		return Answers;
+	}
+
+
+	public void setAnswers(Set<Answer> answers) {
+		for(Answer answer: answers)
+		{
+			answer.setQuestion(this);
+		}
+		Answers = answers;
 	}
 	
 	

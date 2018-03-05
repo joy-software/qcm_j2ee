@@ -15,8 +15,8 @@ public class Qcm extends ActionForm{
 	private static final long serialVersionUID = 1L;
 
 	
-	private Set<Student> Students = new HashSet<Student>(0);
-	private Set<Question> Questions = new HashSet<Question>(0);
+	private Set<Student> Students = new HashSet<Student>();
+	private Set<Question> Questions = new HashSet<Question>();
 	private Teacher teacher;
 
 
@@ -47,11 +47,12 @@ public class Qcm extends ActionForm{
 	 * @param name The name of the MCQ
 	 * @param description The description of the MCQ
 	 */
-	public Qcm(String name, String description,String difficulty) {
+	public Qcm(String name, String description,String difficulty,Teacher teacher) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.difficulty = difficulty;
+		this.teacher = teacher;
 	}
 	
 	/***
@@ -135,6 +136,11 @@ public class Qcm extends ActionForm{
 	}
 
 	public void setQuestions(Set<Question> questions) {
+		for(Question question : questions)
+		{
+			question.setQcm(this);
+		}
+		
 		Questions = questions;
 	}
 
@@ -145,9 +151,6 @@ public class Qcm extends ActionForm{
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
-
-	
-	
 	
 
 }

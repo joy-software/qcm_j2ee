@@ -1,5 +1,8 @@
 package com.master.datascale.projet.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +13,8 @@ import org.apache.struts.action.ActionMapping;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.master.datascale.projet.bean.Qcm;
+import com.master.datascale.projet.bean.Teacher;
 import com.master.datascale.projet.bean.User;
 import com.master.datascale.projet.dao.IDAOQcm;
 import com.master.datascale.projet.dao.IDAOTeacher;
@@ -19,7 +24,11 @@ import com.master.datascale.projet.dao.impl.DAOTeacher;
 import com.master.datascale.projet.dao.impl.DAOUser;
 
 
-
+/**
+ * The Action that handles the login behaviors
+ * @author Joy Jedidja
+ *
+ */
 public class ActionLogin extends Action {
 	
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -69,7 +78,7 @@ public class ActionLogin extends Action {
 				request.getSession().removeAttribute("login");
 				request.getSession().removeAttribute("validate");
 				
-				System.out.println("Votre identité: "+donnees);
+				System.out.println("Votre identite: "+donnees);
 
 				if(!check){
 					request.getSession().setAttribute("login",new Boolean(check));
@@ -86,8 +95,14 @@ public class ActionLogin extends Action {
 
 						if(daoTeacher.isValidated(user.getId()))
 						{
-							IDAOQcm daoQcm = (DAOQcm)context.getBean("DAOQcm");
-							request.getSession().setAttribute("qcms",daoQcm.getAll());
+							//IDAOQcm daoQcm = (DAOQcm)context.getBean("DAOQcm");
+							Teacher teacher  = daoTeacher.findById(user.getId());
+							List<Qcm> qcms = new ArrayList<Qcm>();
+							for(Qcm qcm : teacher.getQcms())
+							{
+								qcms.add(qcm);
+							}
+							request.getSession().setAttribute("qcms",qcms);
 							request.getSession().setAttribute("user",user);						
 							forward = "teacher";
 						}
@@ -108,6 +123,10 @@ public class ActionLogin extends Action {
 						}
 						else
 						{
+							IDAOQcm daoQcm = (DAOQcm)context.getBean("DAOQcm");
+							
+							request.getSession().setAttribute("qcms",daoQcm.getAll());
+							
 							forward = "student";
 						}
 					}

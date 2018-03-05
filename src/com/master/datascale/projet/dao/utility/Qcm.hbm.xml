@@ -15,16 +15,11 @@
 
 		<property name="difficulty" />
 
-		<set name="Students" inverse="false" lazy="true"
-			fetch="select" cascade="all">
-			<key column="idQcm" not-null="true" />
-			<many-to-many entity-name="com.master.datascale.projet.bean.User"
-				column="user_id"></many-to-many>
-		</set>
-
 		 <set name="Questions" table="Question" inverse="true" cascade="all"> 
 			<key column="idQcm" not-null="true" /> 
 			<one-to-many class="com.master.datascale.projet.bean.Question"/> 
 		</set>
+		
+		<many-to-one name="teacher" column="idUser" class="com.master.datascale.projet.bean.Teacher" not-null="true" />
 	</class>
 </hibernate-mapping>

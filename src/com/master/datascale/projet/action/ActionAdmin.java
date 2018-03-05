@@ -17,7 +17,11 @@ import com.master.datascale.projet.dao.IDAOTeacher;
 import com.master.datascale.projet.dao.impl.DAOTeacher;
 
 
-
+/**
+ * The Action Class for all the Administrator Stuffs
+ * @author Joy Jedidja
+ *
+ */
 public class ActionAdmin extends Action {
 	
 	@SuppressWarnings("unchecked")

@@ -8,6 +8,11 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.master.datascale.projet.bean.Qcm;
 import com.master.datascale.projet.dao.IDAOQcm;
 
+/**
+ * 
+ * @author Joy Jedidja
+ *
+ */
 public class DAOQcm  extends HibernateDaoSupport implements IDAOQcm {
 
 	@Override

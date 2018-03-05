@@ -31,6 +31,7 @@ http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 				<value>com/master/datascale/projet/dao/utility/User.hbm.xml</value> 
 				<value>com/master/datascale/projet/dao/utility/Qcm.hbm.xml</value> 
 				<value>com/master/datascale/projet/dao/utility/Question.hbm.xml</value> 
+				<value>com/master/datascale/projet/dao/utility/Answer.hbm.xml</value> 
 			</list>
 		</property> 
 		<property name="hibernateProperties">
@@ -54,6 +55,16 @@ http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 		<property name="sessionFactory"  ref="mySessionFactory"/> 
 	</bean>
 	
+	<bean class="com.master.datascale.projet.dao.impl.DAOQcm"  id="DAOQcm">   
+		<property name="sessionFactory"  ref="mySessionFactory"/> 
+	</bean>
+
+	<bean class="com.master.datascale.projet.dao.impl.DAOQuestion"  id="DAOQuestion">   
+		<property name="sessionFactory"  ref="mySessionFactory"/> 
+	</bean>
 	
+	<bean class="com.master.datascale.projet.dao.impl.DAOAnswer"  id="DAOAnswer">   
+		<property name="sessionFactory"  ref="mySessionFactory"/> 
+	</bean>		
 
 </beans>

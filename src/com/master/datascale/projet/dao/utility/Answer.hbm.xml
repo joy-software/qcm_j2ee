@@ -5,10 +5,12 @@
 <hibernate-mapping package="com.master.datascale.projet.bean">
   <class name="Answer" table="Answer">
   
-  <id name="id" column="id">
+  <id name="id" column="idAnswer">
   		<generator class="increment"/>
   	</id>
-  	
+  	 	
+    <many-to-one name="question" column="idQuestion" class="com.master.datascale.projet.bean.Question" not-null="true" />
+   
   	<property name="value" type="java.lang.String">
       <column name="value"/> 
     </property>

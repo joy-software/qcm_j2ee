@@ -141,77 +141,35 @@ desired effect
         | Your Page Content Here |
         -------------------------->
 		<div class="box box-warning">
-            <div class="box-header with-border">
-              <h3 class="box-title">J2EE Quiz</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <form role="form">
-                
-
-                <div class="form-group">
-                  <label>Description</label>
-                  <textarea class="form-control" rows="3" placeholder="This is a quiz" disabled></textarea>
-                </div>
-
-
-                <!-- checkbox -->
-                <div class="form-group">
-                  <label>1. Question one (5 marks)</label>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Checkbox 1
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Checkbox 2
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Checkbox disabled
-                    </label>
-                  </div>
-                </div>
-
-                <!-- radio -->
-                <div class="form-group">
-                  <label>2. Question two (3 marks)</label>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                      Option one is this and that—be sure to include why it's great
-                    </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                      Option two can be something else and selecting it will deselect option one
-                    </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" >
-                      Option three is disabled
-                    </label>
-                  </div>
-                </div>
-
-               <div class="box-footer">
-                	<button type="submit" class="btn btn-default">Reset</button>
-                	<button type="submit" class="btn btn-default">Save</button>
-                	<button type="submit" class="btn btn-info pull-right">Submit</button>
-             	</div>
-               
-              </form>
-            </div>
-            <!-- /.box-body -->
+		<br/>
+		<br/>
+          <%int i = 0; %>
+	    		<c:forEach items="${sessionScope.qcms}" var="qcm">  
+	    			<div class="col-md-3">
+			          <div class="box box-success box-solid">
+			            <div class="box-header with-border">
+			              <h3 class="box-title">${qcm.getName()}</h3>
+							<span class="badge bg-red">${qcm.getDifficulty()}</span>
+			              <div class="box-tools pull-right">
+			              	<a href="./qcm_try.do?qcmId=<% out.println(i);%>" class="btn btn-danger">TRY</i>
+			                </a>
+			                
+			                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+			                </button>
+			              </div>
+			              <!-- /.box-tools -->
+			            </div>
+			            <!-- /.box-header -->
+			            <div class="box-body">
+			              ${qcm.getDescription()}
+			            </div>
+			            <!-- /.box-body -->
+			          </div>
+			          <!-- /.box -->
+			        </div>
+			        <%i++; %>
+        		</c:forEach>
+	                <!-- /.box-body -->
           </div>
 		
     </section>

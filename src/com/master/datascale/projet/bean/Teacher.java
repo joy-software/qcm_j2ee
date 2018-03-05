@@ -86,6 +86,11 @@ public class Teacher extends User {
 	}
 
 	public void setQcms(Set<Qcm> qcms) {
+		
+		for(Qcm qcm : qcms)
+		{
+			qcm.setTeacher(this);
+		}
 		Qcms = qcms;
 	}
 	

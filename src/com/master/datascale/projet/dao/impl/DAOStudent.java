@@ -9,6 +9,11 @@ import com.master.datascale.projet.bean.Student;
 import com.master.datascale.projet.bean.User;
 import com.master.datascale.projet.dao.IDAOStudent;
 
+/**
+ * 
+ * @author Joy Jedidja
+ *
+ */
 public class DAOStudent extends HibernateDaoSupport implements IDAOStudent{
 
 	@Override
